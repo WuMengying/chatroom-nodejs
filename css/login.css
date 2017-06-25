@@ -30,7 +30,10 @@ body {
 .box-width {
     width: 80%;
 }
+
+
 /*最外层*/
+
 .login-box {
     width: 20%;
     min-width: 304px;
@@ -42,7 +45,10 @@ body {
     box-shadow: 1px 1px 15px #7B8C99;
     background: #fff;
 }
+
+
 /*LOGIN标题*/
+
 .sign-title {
     color: #42A855;
     border: 2px solid #42A855;
@@ -50,13 +56,19 @@ body {
     border-left: transparent;
     border-right: transparent;
 }
+
+
 /*图片切换*/
+
 .picture-carousel {
     position: relative;
     display: flex;
     margin: 10%;
 }
+
+
 /*图片切换箭头*/
+
 .arrow {
     z-index: 3;
     position: absolute;
@@ -66,7 +78,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    /*color: #51D15B;*/
+    color: #ffffff;
 }
 
 .arrow:hover {
@@ -77,8 +89,24 @@ body {
     left: 0;
 }
 
+.before-arrow {
+    width: 0px;
+    height: 0px;
+    border-width: 30px;
+    border-style: solid;
+    border-color: transparent #51D15B transparent transparent;
+}
+
 .right-arrow {
     right: 0;
+}
+
+.after-arrow{
+     width: 0px;
+    height: 0px;
+    border-width: 30px;
+    border-style: solid;
+    border-color: transparent  transparent transparent #51D15B; 
 }
 
 .picture-carousel img {
@@ -120,7 +148,10 @@ body {
 .p3:hover {
     transform: scale(1.2);
 }
+
+
 /*用户名*/
+
 .name-box {
     display: flex;
     justify-content: center;
@@ -135,7 +166,10 @@ body {
     border: none;
     font-size: 16px;
 }
+
+
 /*登录按钮*/
+
 .button-box {
     display: flex;
     justify-content: center;
@@ -151,7 +185,10 @@ body {
     color: white;
     font-size: 16px;
 }
+
+
 /*错误信息*/
+
 .error-box {
     color: #42A855;
     border: 2px solid #42A855;

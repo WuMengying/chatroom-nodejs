@@ -105,87 +105,89 @@ body {
 /*聊天气泡*/
 
 .my-message-box {
-    position: relative;
-    display: block;
-    margin-top: 20px;
-    margin-bottom: 30px;
-    text-align: right;
+    display: flex;
+    justify-content: flex-end;
+    align-content: center;
+    margin: 5px;
 }
 
-.my-message {
-    position: relative;
+.other-message-box {
+    display: flex;
+    justify-content: flex-start;
+    align-content: center;
+    margin: 5px;
+}
+
+.message-content {
+    display: flex;
+    justify-content: center;
+    align-content: center;
     background-color: #51D15B;
-    padding: 15px;
+    padding: 5px 10px;
     border-radius: 15px;
     color: #fff;
-    display: inline-block;
 }
 
-.my-arrow {
+.other-message-content {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    background-color: #79C2EA;
+    padding: 5px 10px;
+    border-radius: 15px;
+    color: #fff;
+}
+
+.message-content span {
+    padding: 20px 0px;
+}
+
+.other-message-content span {
+    padding: 20px 0px;
+}
+
+.message-arrow {
     width: 0px;
     height: 0px;
     border-width: 8px;
     border-style: solid;
-    border-color: transparent transparent transparent#51D15B;
-    display: inline-block;
-    position: relative;
+    border-color: transparent transparent transparent #51D15B;
+    align-self: center;
 }
 
-.message-arrow {
-    display: inline-block;
-    list-style-type: none;
-}
-
-.message-arrow li {
-    float: left;
-}
-
-.other-message-box {
-    position: relative;
-    display: block;
-    margin-top: 20px;
-    margin-bottom: 30px;
-}
-
-.other-message {
-    position: relative;
-    background-color: #79C2EA;
-    padding: 15px;
-    border-radius: 15px;
-    color: #fff;
-    display: inline-block;
-}
-
-.other-arrow {
+.other-message-arrow {
     width: 0px;
     height: 0px;
     border-width: 8px;
     border-style: solid;
     border-color: transparent #79C2EA transparent transparent;
-    display: inline-block;
-    position: relative;
+    align-self: center;
 }
 
-.time {
-    color: #333333;
-    display: block;
-    font-size: 12px;
-    text-align: center;
+.user-information {
+    display: flex;
+    flex-direction: column;
+    align-content: flex-end;
 }
 
-.message-img {
-    display: block;
+.other-user-information {
+    display: flex;
+    flex-direction: column;
+    align-content: flex-end;
+}
+
+.user-chat-img {
     width: 50px;
     height: 50px;
 }
 
-.name {
+.user-chat-name {
     color: #333333;
-    display: block;
     font-size: 16px;
     text-align: center;
 }
 
+/*聊天输入框*/
 .chat-edit {
     margin-top: 5px;
     display: flex;
@@ -194,7 +196,7 @@ body {
     box-shadow: 1px 1px 15px #7B8C99;
     overflow: hidden;
 }
-
+/*聊天输入框输入区域*/
 .edit-box {
     width: 80%;
     height: 100%;
@@ -203,6 +205,7 @@ body {
     outline: none;
 }
 
+/*聊天框输入按钮*/
 .edit-button {
     height: 100%;
     padding: 5px 15px;
@@ -237,7 +240,7 @@ body {
     margin: 15px;
     font-size: 18px;
     font-weight: bold;
-    color: #51D15B;
+    color: #79C2EA;
 }
 
 .user-img {
@@ -246,6 +249,13 @@ body {
     margin: 5px;
 }
 
+.online-count {
+    font-size: 18px;
+    font-weight: bold;
+    color: #79C2EA;
+}
+
+/*兼容小屏幕*/
 @media screen and (max-width: 420px) {
     .chat-box {
         width: 50%;
