@@ -1,4 +1,3 @@
-# Cyan1614
 # chatroom
 2017.06.25<br/>
 后端部分使用了Node.js + express 实现<br/>
