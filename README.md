@@ -19,5 +19,3 @@ Login<br/>
 <img src="img/login.jpg" />
 index<br/>
 <img src="img/index.jpg" />
-
-接下来还会更新本项目
