@@ -1,3 +1,9 @@
+window.onload = function(){  
+    this.setTimeout(hiddenLoad, 1000);
+};  
+function hiddenLoad(){
+    document.getElementById('loading').hidden = true;
+}
 // 获取url里面的内容
 var url = ["selectpicture=3.png","username=Anonymous"]; 
 if (decodeURI(location.href).indexOf('?')!=-1)

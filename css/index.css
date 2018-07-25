@@ -26,7 +26,14 @@ body {
 
 
 /*最外层*/
-
+.loading-box{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background: white;
+    text-align: center;
+    padding-top: calc(100vh - 100px);
+}
 .chat-box {
     width: 50%;
     max-width: 720px;
