@@ -203,6 +203,8 @@ function createOtherMessage(information) {
         text.innerHTML = "Try Again!";
     else
         text.innerHTML = guesstype;
+    if (guesstype == "success")
+        userChatImg.src = "img/success.png";
     guessResult.appendChild(text);
     otherMessageBox.appendChild(guessResult);
     chatContent.appendChild(otherMessageBox);

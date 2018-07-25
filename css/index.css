@@ -18,10 +18,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(-135deg, #51D15B, #42A855);
-    background: -moz-linear-gradient(-135deg, #51D15B, #42A855);
-    background: -webkit-linear-gradient(-135deg, #51D15B, #42A855);
-    background: -o-linear-gradient(-135deg, #51D15B, #42A855);
+    background: rgb(190,220,248);
 }
 
 
@@ -30,9 +27,9 @@ body {
     height: 100%;
     width: 100%;
     position: absolute;
-    background: white;
+    background: rgb(190,220,248);
+    overflow: hidden;
     text-align: center;
-    padding-top: calc(100vh - 100px);
 }
 .chat-box {
     width: 50%;
@@ -41,7 +38,7 @@ body {
     height: 80%;
     min-height: 530px;
     max-height: 530px;
-    display: flex;
+    display: flex; 
     flex-direction: column;
     background: #fff;
     box-shadow: 1px 1px 15px #333333;
