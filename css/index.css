@@ -31,13 +31,16 @@ body {
     overflow: hidden;
     text-align: center;
 }
+.success-box{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    overflow: hidden;
+    text-align: center;
+}
 .chat-box {
-    width: 50%;
-    max-width: 720px;
-    min-width: 400px;
-    height: 80%;
-    min-height: 530px;
-    max-height: 530px;
+    height: 100%;
+    width: 100%;    
     display: flex; 
     flex-direction: column;
     background: #fff;
@@ -190,6 +193,7 @@ body {
 .message-content span,.other-message-content span {
     word-wrap: break-word;
     max-width: 100px;
+    padding: 15px 0;
 }
 
 .message-arrow {
@@ -231,7 +235,7 @@ body {
 
 .user-chat-name {
     color: #333333;
-    font-size: 16px;
+    font-size: 10px;
     text-align: center;
 }
 
@@ -309,14 +313,6 @@ body {
 }
 /*兼容小屏幕*/
 @media screen and (max-width: 420px) {
-    .chat-box {
-        width: 50%;
-        max-width: 720px;
-        min-width: 300px;
-        height: 80%;
-        min-height: 530px;
-        max-height: 530px;
-    }
     .chat-body-left {
         height: 100%;
         width: 100%;

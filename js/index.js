@@ -4,6 +4,9 @@ window.onload = function(){
 function hiddenLoad(){
     document.getElementById('loading').hidden = true;
 }
+function hiddenSuccess(){
+    document.getElementById('successbox').hidden = true;
+}
 // 获取url里面的内容
 var url = ["selectpicture=3.png","username=Anonymous"]; 
 if (decodeURI(location.href).indexOf('?')!=-1)
@@ -203,8 +206,11 @@ function createOtherMessage(information) {
         text.innerHTML = "Try Again!";
     else
         text.innerHTML = guesstype;
-    if (guesstype == "success")
+    if (guesstype == "success"){
         userChatImg.src = "img/success.png";
+        document.getElementById('successbox').hidden = false;
+        setTimeout(hiddenSuccess,1000);
+    }
     guessResult.appendChild(text);
     otherMessageBox.appendChild(guessResult);
     chatContent.appendChild(otherMessageBox);
