@@ -21,19 +21,18 @@
         <div class="guess-words">
             <div class="guess-area-1">
                 <div class="guess-top-1">Words</div>
-                <div class="guess-top-2">Apple</div>
+                <div class="guess-top-2 guess-target">Apple</div>
             </div>
-            <div class="guess-area-1">
-                <div class="guess-top-1">Guess Time</div>
-                <div class="guess-top-2">3</div>
-            </div>
-            <div class="guess-area-1">
-                <div class="guess-top-1">Guess Time</div>
-                <div class="guess-top-2">3</div>
+            <div class="guess-area-1 proc-box">
+                <div class="guess-top-1">Try</div>
+                <div class="guess-top-2 guess-state">0</div>
             </div>
             <div class="guess-area-1">
                 <div class="guess-top-1">Score</div>
-                <div class="guess-top-2">3</div>
+                <div class="guess-top-2 guess-score">0</div>
+            </div>
+            <div class="guess-area-1">
+                <input type="button" class="btn-pass" value="Pass"/>
             </div>
         </div>
         <!--聊天框主体-->
@@ -47,15 +46,15 @@
             <!--聊天框右侧-->
             <div class="chat-body-right">
                 <!--聊天框右侧头像-->
-                <img class="user-img" />
+                <img class="user-img"  src="img/1.png"/>
                 <!--聊天框右侧用户名-->
-                <div class="user-name">user-name</div>
+                <div class="user-name">Anonymous</div>
                 <!--聊天框右侧统计人数-->
                 <div class="online-count">Online:0</div>
             </div>
         </div>
         <div class="chat-edit">
-            <textarea type="text" cols="100" rows="10" class="edit-box" placeholder="Please Type You Message" maxlength="200"></textarea>             
+            <textarea type="text" cols="100" rows="10" class="edit-box" placeholder="Please Type Your Description" maxlength="200"></textarea>             
             <input type="button" class="edit-button" value="SEND">
         </div>
     </div>

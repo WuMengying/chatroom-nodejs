@@ -50,12 +50,31 @@ body {
     text-align: center;
     width: 25%
 }
+.guess-area-2{
+    text-align: center;
+    width: 50%
+}
+.pro-img{
+    width: 25px;
+    padding-top: 12.5px;
+}
 .button-box {
     display: flex;
     justify-content: flex-end;
 }
 
 .log-out {
+    height: 100%;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 5px 15px;
+    background: #79C2EA;
+    color: #fff;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+.btn-pass {
     height: 100%;
     font-size: 14px;
     font-weight: bold;
@@ -83,6 +102,7 @@ body {
 .guess-words{
     display: flex;
     margin: 5px 15px;
+    height: 50px;
 }
 .guess-top-1{
     color: #42A855;
@@ -92,7 +112,7 @@ body {
 
 .chat-body-left {
     height: 100%;
-    width: 70%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -144,6 +164,23 @@ body {
     padding: 5px 10px;
     border-radius: 15px;
     color: #fff;
+}
+
+.guess-result {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding: 20px;
+    border-radius: 15px;
+}
+.success{
+    color: #42A855;
+}
+.failed{
+    color: red;
+}
+.wrong{
+    color:orange;
 }
 
 .message-content span,.other-message-content span {
@@ -263,6 +300,9 @@ body {
     color:white;
 }
 
+.chat-body-right {
+    display: none;
+}
 /*兼容小屏幕*/
 @media screen and (max-width: 420px) {
     .chat-box {
@@ -280,8 +320,5 @@ body {
         flex-direction: column;
         justify-content: space-around;
         margin: 5px;
-    }
-    .chat-body-right {
-        display: none;
     }
 }

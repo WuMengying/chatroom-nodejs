@@ -43,8 +43,8 @@ loginButton.addEventListener('click', function () {
     if (userName.value === '') {
         errorMessage.innerHTML = 'Please Type You Name';
         errorMessage.style.visibility = 'visible';
-    } else if (userName.value.length > 8) {
-        errorMessage.innerHTML = 'Your Name Cannot Over 8 Words';
+    } else if (userName.value.length > 20) {
+        errorMessage.innerHTML = 'Your Name Cannot Over 20 Words';
         errorMessage.style.visibility = 'visible';
     } else {
         window.location.href =

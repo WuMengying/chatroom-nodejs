@@ -1,5 +1,7 @@
 // 获取url里面的内容
-var url = decodeURI(location.href).split('?')[1].split('&');
+var url = ["selectpicture=3.png","username=Anonymous"]; 
+if (decodeURI(location.href).indexOf('?')!=-1)
+    url = decodeURI(location.href).split('?')[1].split('&');
 
 // 获取聊天内容框
 var chatContent = document.getElementsByClassName('chat-content')[0];
@@ -24,6 +26,9 @@ var userImg = document.getElementsByClassName('user-img')[0];
 userImg.src = 'img/' + url[0].split('=')[1];
 var logOut = document.getElementsByClassName('log-out')[0];
 
+// 换一题按钮
+var btnpass = document.getElementsByClassName('btn-pass')[0];
+btnpass.addEventListener('click', newTarget);
 // 发送按钮绑定点击事件
 editButton.addEventListener('click', sendMessage);
 
@@ -51,14 +56,34 @@ function closePage() {
         window.close();
     }
 }
+
+//词语列表
+//var targetlist = ["apple","blueberries","orange","watermelon","lemon","grape","mango","peach","grape","cherry","mushroom","corn","carrot","potatoes","tomato","natto","cabbage","eggplant","cucumber","pumpkin","tricycle","bicycle","car","train","aircraft","ship","spacecraft","subway","bus","table","chair","sofa","wardrobe","bed","pillow","door","window","mirror","refrigerator","air conditioner","washing machine","television","computer","phone","oven","alarm clock","teacher","cook","police","nurse","waiter","programmer","singer","athlete","ceo","actor"];
+var targetlist = ["apple","cherry"];
+var task = {target: "apple", time: 0, compelete: 0};
+var guess_history = [];
+var _etarget = document.getElementsByClassName('guess-target')[0];
+var _escore = document.getElementsByClassName('guess-score')[0];
+function newTarget(){
+    var wordidx = Math.floor(Math.random()*targetlist.length);
+    console.log(wordidx);
+    task.target = targetlist[wordidx];
+    _etarget.innerHTML = task.target;
+    task.time = 0;
+    document.getElementsByClassName('guess-state')[0].innerHTML = task.time + "/5";
+    guess_history = [];
+}
+var MAXTRY = 5;
+function updateState(){
+    _escore.innerHTML = task.compelete;
+    document.getElementsByClassName('guess-state')[0].innerHTML = task.time + "/5";
+}
 // socket部分
 var socket = io();
 
 // 当接收到消息并且不是本机时生成聊天气泡
 socket.on('message', function (information) {
-    if (information.name !== userName.textContent) {
-        createOtherMessage(information);
-    }
+    createOtherMessage(information);
 });
 
 // 当接收到有人连接进来
@@ -77,9 +102,9 @@ socket.on('disconnected', function (onlinecount) {
 function sendMessage() {
     if (editBox.value != '') {
         var myInformation = {
-            name: userName.textContent,
-            chatContent: editBox.value,
-            img: userImg.src
+            description: editBox.value,
+            black_list: guess_history,
+            target: task.target
         };
         socket.emit('message', myInformation);
         createMyMessage();
@@ -145,11 +170,39 @@ function createOtherMessage(information) {
     var otherMessageContent = document.createElement('div');
     otherMessageContent.className = 'other-message-content';
     var text = document.createElement('span');
-    text.innerHTML = information.chatContent;
+    text.innerHTML = information.predict;
     otherMessageContent.appendChild(text);
     otherMessageBox.appendChild(otherMessageContent);
+    var guesstype = "wrong";
+    //guess
+    if (information.predict == information.target){
+        task.compelete+=1;
+        newTarget();
+        guesstype = "success";
+    }
+    else{
+        task.time+=1;
+        if (task.time >= MAXTRY){
+            guesstype = "failed";
+            newTarget();
+        }else{
+            guesstype = "wrong";
+        }
+    }
 
+    var guessResult = document.createElement('div');
+    guessResult.className = 'guess-result '+ guesstype;
+    var text = document.createElement('span');
+    if (guesstype == "wrong")
+        text.innerHTML = "Try Again!";
+    else
+        text.innerHTML = guesstype;
+    guessResult.appendChild(text);
+    otherMessageBox.appendChild(guessResult);
     chatContent.appendChild(otherMessageBox);
 
     chatContent.scrollTop = chatContent.scrollHeight;
+    //add guess history
+    guess_history.push(information.predict);
+    updateState();
 }

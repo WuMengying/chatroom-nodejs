@@ -10,7 +10,7 @@ var onlineCount = 0;
 app.use(express.static(__dirname));
 
 // 路径映射
-app.get('/login.html', function (request, response) {
+app.get('/', function (request, response) {
     response.sendFile('login.html');
 });
 
@@ -32,8 +32,16 @@ io.on('connection', function (socket) {
 
     // 收到了客户端发来的消息
     socket.on('message', function (message) {
+        console.log(message.description);
+        console.log(message.black_list);
+        console.log(message.target);
         // 给客户端发送消息
-        io.emit('message', message);
+        var reply = new Object();
+        reply.name = "Xiao Ying";
+        reply.img = "img/xiaoying.png";
+        reply.predict = "cherry";
+        reply.target = message.target;
+        socket.emit('message', reply);
     });
 
 });
